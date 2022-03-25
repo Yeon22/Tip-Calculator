@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!--  왼쪽 Label  -->
     <TextView
         android:id="@+id/baseLabel"
         android:layout_width="wrap_content"
@@ -22,11 +23,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="24%"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/baseLabel"
-        app:layout_constraintTop_toBottomOf="@+id/baseLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/baseLabel"
+        tools:text="24%" />
 
     <TextView
         android:id="@+id/tipLabel"
@@ -47,4 +48,47 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@+id/baseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tipLabel" />
+
+    <!--  오른쪽 component  -->
+    <EditText
+        android:id="@+id/baseAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:ems="10"
+        android:hint="기본 금액"
+        android:inputType="numberDecimal"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/baseLabel"
+        app:layout_constraintStart_toEndOf="@+id/baseLabel"
+        app:layout_constraintTop_toTopOf="@+id/baseLabel" />
+
+    <SeekBar
+        android:id="@+id/seekBarTip"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:max="50"
+        app:layout_constraintBottom_toBottomOf="@+id/tipPercentLabel"
+        app:layout_constraintStart_toStartOf="@+id/baseAmount"
+        app:layout_constraintTop_toTopOf="@+id/tipPercentLabel" />
+
+    <TextView
+        android:id="@+id/tipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="@+id/tipLabel"
+        app:layout_constraintStart_toStartOf="@+id/seekBarTip"
+        app:layout_constraintTop_toTopOf="@+id/tipLabel"
+        tools:text="19.96" />
+
+    <TextView
+        android:id="@+id/totalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="@+id/totalLabel"
+        app:layout_constraintStart_toStartOf="@+id/tipAmount"
+        app:layout_constraintTop_toTopOf="@+id/totalLabel"
+        tools:text="103.11" />
 </androidx.constraintlayout.widget.ConstraintLayout>
