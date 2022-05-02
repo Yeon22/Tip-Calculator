@@ -10,9 +10,12 @@ import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import java.text.DecimalFormat
 
-private const val TAG = "MainActivity"
+private const val TAG = "TipCalculator"
 private const val INITIAL_TIP_PERCENT = 15
 
 class MainActivity : AppCompatActivity() {
@@ -22,21 +25,30 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvTipAmount: TextView
     private lateinit var tvTotalAmount: TextView
     private lateinit var tvTipDescription: TextView
+    private lateinit var adView: AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        MobileAds.initialize(this)
 
+        initBinding()
+        initTipPercent()
+        onSeekBarChange()
+        onBaseAmountTextChange()
+
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+    }
+
+    private fun initBinding() {
         etBaseAmount = findViewById(R.id.etBaseAmount)
         seekBarTip = findViewById(R.id.seekBarTip)
         tvTipPercent = findViewById(R.id.tvTipPercent)
         tvTipAmount = findViewById(R.id.tvTipAmount)
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         tvTipDescription = findViewById(R.id.tvTipDescription)
-
-        initTipPercent()
-        onSeekBarChange()
-        onBaseAmountTextChange()
+        adView = findViewById(R.id.adView)
     }
 
     private fun initTipPercent() {

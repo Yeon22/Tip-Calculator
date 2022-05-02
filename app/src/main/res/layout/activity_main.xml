@@ -96,13 +96,14 @@
         android:id="@+id/footer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="392dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Made By Clap-Yeon"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -115,4 +116,18 @@
         app:layout_constraintStart_toStartOf="@+id/seekBarTip"
         app:layout_constraintTop_toBottomOf="@+id/seekBarTip"
         tools:text="Acceptable" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        app:adSize="MEDIUM_RECTANGLE"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 </androidx.constraintlayout.widget.ConstraintLayout>
